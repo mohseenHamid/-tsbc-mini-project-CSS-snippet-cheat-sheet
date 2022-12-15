@@ -1,0 +1,101 @@
+/*
+Problems:
+1. Struggling to change width of card-headings + align them
+2. The gap between card headings + <p> aren't the same
+*/
+
+* {
+	color: rgba(232, 102, 236);
+	background: black;
+}
+
+h1,
+h2,
+p {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 50px;
+}
+
+header p {
+	color: rgb(236, 236, 236);
+}
+
+main {
+	display: grid;
+	/* grid-template-rows: ; */
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-areas:
+		"c1 c2 c3"
+		"c4 c5 c6";
+	align-content: center;
+	justify-content: center;
+}
+
+/* main */
+/* grid areas assignment */
+#c1 {
+	grid-area: c1;
+}
+
+#c2 {
+	grid-area: c2;
+}
+
+#c3 {
+	grid-area: c3;
+}
+
+#c4 {
+	grid-area: c4;
+}
+
+#c5 {
+	grid-area: c5;
+}
+
+#c6 {
+	grid-area: c6;
+}
+
+/* grid cards/content */
+.card {
+	margin: 15px;
+	margin-top: 30px;
+	padding: 15px;
+	border: 1px dashed white;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	position: relative;
+	z-index: 1;
+}
+
+/* #top {
+	border: 1px solid white;
+	border-radius: 5px;
+	position: relative;
+	top: -60px;
+	z-index: 2;
+	background-color: black;
+} */
+
+.card-heading {
+	border: 1px solid white;
+	border-radius: 5px;
+	padding: 10px;
+	position: absolute;
+	top: -45px;
+	z-index: 2;
+	background-color: black;
+}
+
+footer {
+	margin: 50px;
+	text-align: center;
+}
