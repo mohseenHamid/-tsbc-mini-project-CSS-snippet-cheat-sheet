@@ -3,6 +3,7 @@ Problems:
 1. Card heading boxes are different sizes
 2. How to fix the gap between card headings & <p> + gaps
 4. How to adjust width of child elements in a grid parent container e.g. code-box to be hugging?
+5. Code text spills over container when screen is shrunk
 
 To-do:
 - Card title positioning
@@ -139,6 +140,11 @@ main {
 }
 ::selection {
 	background: var(--turq);
+}
+
+/* wrap the code text */
+.code-box pre {
+	white-space: pre-wrap;
 }
 
 /* TOOK FROM SOLUTION */
