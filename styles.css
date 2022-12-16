@@ -14,19 +14,49 @@ To-do:
 	--light-text: rgb(236, 236, 236);
 	--dark-bg: #33393f;
 	--turq: rgb(28, 214, 158);
+	--purple: rgba(232, 102, 236);
+}
+
+/* TOOK FROM SOLUTION */
+html {
+	/* set 1rem to 10px instead of native 16px to make it easier to calculate font-size values for the rest of the page (e.g. 1.6rem is 16px, 2.0rem is 20px, etc.) */
+	font-size: 62.5%;
 }
 
 body {
 	background: var(--dark-bg);
-	color: rgba(232, 102, 236);
-	/* width: 992px; */
+	color: var(--purple);
+
+	/* TOOK FROM SOLUTION */
+	/* Sans Serif font stack is implemented to help select the best font for each type of computer operating system */
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+		Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+	/* set body font size to 1.75rem, which is 1.75x more than the font-size of 10px, making it 17.5px  */
+	font-size: 1.5rem;
+	/* line-height: 1.5; */
 }
 
 h1,
 h2,
+h3,
 p {
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
 		Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+/* TOOK FROM SOLUTION */
+h1 {
+	/* 4rem = 40px (4 * 10px) */
+	font-size: 3.5rem;
+}
+
+h2 {
+	font-size: 3rem;
+}
+
+h3 {
+	font-size: 2.5rem;
 }
 
 /* header section */
@@ -34,7 +64,7 @@ header {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	margin: 50px;
+	margin: 4rem;
 	text-align: center;
 }
 
@@ -57,9 +87,9 @@ main {
 /* cards/content */
 .card {
 	width: 30%;
-	margin: 15px;
-	margin-top: 30px;
-	padding: 15px;
+	margin: 2rem;
+	margin-top: 4rem;
+	padding: 0.8rem;
 	border: 1px dashed white;
 	border-radius: 5px;
 	display: flex;
@@ -68,18 +98,25 @@ main {
 	z-index: 1;
 }
 .card:hover,
-.card:hover .card-heading,
-.card:hover .code-box {
+.card:hover .card-heading {
+	/* TOOK FROM SOLUTION */
 	box-shadow: inset 0px 0px 8px var(--turq), 0 0 15px var(--turq);
 	transition: all 0.5s ease-in-out;
 }
+/* .code-box:hover {
+	box-shadow: inset 0px 0px 8px var(--turq), 0 0 15px var(--purple);
+	transition: all 0.5s ease-in-out;
+} */
 
 .card-heading {
 	border: 1px solid white;
 	border-radius: 5px;
-	padding: 10px;
+	padding: 0.8rem;
 	position: relative;
-	top: -4rem;
+
+	/* TOOK FROM SOLUTION */
+	margin: -4rem 0 0.8rem 0;
+
 	z-index: 2;
 	background-color: var(--dark-bg);
 	display: flex;
@@ -87,7 +124,7 @@ main {
 }
 
 .code-box {
-	padding: 10px;
+	padding: 0.8rem;
 	border: 1px solid transparent;
 	border-radius: 5px;
 	background-image: linear-gradient(
@@ -96,6 +133,7 @@ main {
 	);
 	color: var(--light-text);
 }
+/* TOOK FROM SOLUTION */
 .code-box pre:active {
 	user-select: all;
 }
@@ -103,6 +141,7 @@ main {
 	background: var(--turq);
 }
 
+/* TOOK FROM SOLUTION */
 .code-box,
 .card {
 	flex-grow: 1;
@@ -110,18 +149,18 @@ main {
 
 /* footer */
 footer {
-	margin: 50px;
+	margin: 4rem;
 	text-align: center;
 }
 
 /* media query for larger screens */
 /* @media screen and (min-width: 992px) {
 	header {
-		width: 75%;
+		width: 100%;
 	}
 
 	.card {
-		flex: 0 0 33.333%;
-		max-width: 33.333%;
+		flex: 0 0 30%;
+		max-width: 30%;
 	}
 } */
