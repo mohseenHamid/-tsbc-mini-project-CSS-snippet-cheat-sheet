@@ -6,105 +6,109 @@
 		<meta charset="UTF-8" />
 	</head>
 
-	<header>
-		<h1>CSS Snippet Cheat Sheet</h1>
-		<p>
-			Ever have trouble recalling the exact syntax for your favourite CSS code?
-			Give it a permanent home and add it to this page! Select any snippet below
-			and it'll automatically select all of the code for you to copy
-		</p>
-	</header>
-
-	<main>
-		<section id="c1" class="card">
-			<h2 class="card-heading">Flexbox Row</h2>
-			<p class="card-desc">
-				Use these three properties to create a Flexbox row layout.
+	<body>
+		<header>
+			<h1>CSS Snippet Cheat Sheet</h1>
+			<p>
+				Ever have trouble recalling the exact syntax for your favourite CSS
+				code? Give it a permanent home and add it to this page! Select any
+				snippet below and it'll automatically select all of the code for you to
+				copy
 			</p>
-			<article class="code-box">
-				<pre><code>.row {
+		</header>
+
+		<main>
+			<section id="flex-row">
+				<section id="c1" class="card">
+					<h2 class="card-heading">Flexbox Row</h2>
+					<p class="card-desc">
+						Use these three properties to create a Flexbox row layout.
+					</p>
+					<article class="code-box">
+						<pre><code>.row {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }</code></pre>
-			</article>
-		</section>
+					</article>
+				</section>
 
-		<section id="c2" class="card">
-			<div id="top">
-				<h2 class="card-heading">Flexbox Column</h2>
-			</div>
-			<div id="bottom">
-				<p class="card-desc">Use this to create a Flexbox column layout.</p>
-				<article class="code-box">
-					<pre><code>.column {
+				<section id="c2" class="card">
+					<h2 class="card-heading">Flexbox Column</h2>
+					<p class="card-desc">Use this to create a Flexbox column layout.</p>
+					<article class="code-box">
+						<pre><code>.column {
     display: flex;
     flex-direction: column;
 }</code></pre>
-				</article>
-			</div>
-		</section>
+					</article>
+				</section>
 
-		<section id="c3" class="card">
-			<h2 class="card-heading">CSS Grid Layout</h2>
-			<p class="card-desc">Build a 12-column layout using CSS grid.</p>
-			<article class="code-box">
-				<pre><code>.grid {
+				<section id="c3" class="card">
+					<h2 class="card-heading">CSS Grid Layout</h2>
+					<p class="card-desc">Build a 12-column layout using CSS grid.</p>
+					<article class="code-box">
+						<pre><code>.grid {
     display: grid;
     width: 100%;
     grid-template-columns: 
 repeat(12, 1fr);
 }</code></pre>
-			</article>
-		</section>
+					</article>
+				</section>
 
-		<section id="c4" class="card">
-			<h2 class="card-heading">Linear Gradients</h2>
-			<p class="card-desc">
-				This will create a background linear gradient from top to bottom
-			</p>
-			<article class="code-box">
-				<pre><code>.linear-gradient-background {
+				<section id="c4" class="card">
+					<h2 class="card-heading">Linear Gradients</h2>
+					<p class="card-desc">
+						This will create a background linear gradient from top to bottom
+					</p>
+					<article class="code-box">
+						<pre><code>.linear-gradient-background {
     background-image: linear-
 gradient(
         rgba(232, 102, 236, 0.3) 0%,
         rgba(232, 102, 236, 0.6) 100%,
     );
 }</code></pre>
-			</article>
-		</section>
+					</article>
+				</section>
 
-		<section id="c5" class="card">
-			<h2 class="card-heading">Box Transition Glow</h2>
-			<p class="card-desc">Use transition and box shadows to glow on hover.</p>
-			<article class="code-box">
-				<pre><code>.row {
+				<section id="c5" class="card">
+					<h2 class="card-heading">Box Transition Glow</h2>
+					<p class="card-desc">
+						Use transition and box shadows to glow on hover.
+					</p>
+					<article class="code-box">
+						<pre><code>.row {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }</code></pre>
-			</article>
-		</section>
+					</article>
+				</section>
 
-		<section id="c6" class="card">
-			<h2 class="card-heading">Overlay Card with Title</h2>
-			<p class="card-desc">
-				Use position properties and negative margins to raise elements higher
-				than their natural starting point.
-			</p>
-			<article class="code-box">
-				<pre><code>.row {
+				<section id="c6" class="card">
+					<h2 class="card-heading">Overlay Card with Title</h2>
+					<p class="card-desc">
+						Use position properties and negative margins to raise elements
+						higher than their natural starting point.
+					</p>
+					<article class="code-box">
+						<pre><code>.row {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }</code></pre>
-			</article>
-		</section>
-	</main>
+					</article>
+				</section>
+			</section>
+		</main>
 
-	<footer>
-		<h2>
-			Made with <span style="font-size: 150%; color: red">&#9829;</span> and CSS
-		</h2>
-	</footer>
+		<footer>
+			<h2>
+				Made with <span style="font-size: 150%; color: red">&#9829;</span> and
+				CSS
+			</h2>
+		</footer>
+	</body>
 </html>

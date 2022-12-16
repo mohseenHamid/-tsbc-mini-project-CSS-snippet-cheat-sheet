@@ -1,101 +1,127 @@
 /*
 Problems:
-1. Struggling to change width of card-headings + align them
-2. The gap between card headings + <p> aren't the same
+1. Card heading boxes are different sizes
+2. How to fix the gap between card headings & <p> + gaps
+4. How to adjust width of child elements in a grid parent container e.g. code-box to be hugging?
+
+To-do:
+- Card title positioning
+- Media query
 */
 
-* {
+/* general */
+:root {
+	--light-text: rgb(236, 236, 236);
+	--dark-bg: #33393f;
+	--turq: rgb(28, 214, 158);
+}
+
+body {
+	background: var(--dark-bg);
 	color: rgba(232, 102, 236);
-	background: black;
+	/* width: 992px; */
 }
 
 h1,
 h2,
 p {
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+		Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
+/* header section */
 header {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	margin: 50px;
+	text-align: center;
 }
 
+/* header subtext */
 header p {
-	color: rgb(236, 236, 236);
+	color: var(--light-text);
 }
 
+/* main section */
 main {
-	display: grid;
-	/* grid-template-rows: ; */
-	grid-template-columns: repeat(3, 1fr);
-	grid-template-areas:
-		"c1 c2 c3"
-		"c4 c5 c6";
-	align-content: center;
+}
+
+#flex-row {
+	display: flex;
+	flex-direction: row;
 	justify-content: center;
+	flex-wrap: wrap;
 }
 
-/* main */
-/* grid areas assignment */
-#c1 {
-	grid-area: c1;
-}
-
-#c2 {
-	grid-area: c2;
-}
-
-#c3 {
-	grid-area: c3;
-}
-
-#c4 {
-	grid-area: c4;
-}
-
-#c5 {
-	grid-area: c5;
-}
-
-#c6 {
-	grid-area: c6;
-}
-
-/* grid cards/content */
+/* cards/content */
 .card {
+	width: 30%;
 	margin: 15px;
 	margin-top: 30px;
 	padding: 15px;
 	border: 1px dashed white;
+	border-radius: 5px;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
-	position: relative;
+	justify-content: flex-start;
 	z-index: 1;
 }
-
-/* #top {
-	border: 1px solid white;
-	border-radius: 5px;
-	position: relative;
-	top: -60px;
-	z-index: 2;
-	background-color: black;
-} */
+.card:hover,
+.card:hover .card-heading,
+.card:hover .code-box {
+	box-shadow: inset 0px 0px 8px var(--turq), 0 0 15px var(--turq);
+	transition: all 0.5s ease-in-out;
+}
 
 .card-heading {
 	border: 1px solid white;
 	border-radius: 5px;
 	padding: 10px;
-	position: absolute;
-	top: -45px;
+	position: relative;
+	top: -4rem;
 	z-index: 2;
-	background-color: black;
+	background-color: var(--dark-bg);
+	display: flex;
+	align-items: center;
 }
 
+.code-box {
+	padding: 10px;
+	border: 1px solid transparent;
+	border-radius: 5px;
+	background-image: linear-gradient(
+		rgba(232, 102, 236, 0.3) 0%,
+		rgba(232, 102, 236, 0.6) 100%
+	);
+	color: var(--light-text);
+}
+.code-box pre:active {
+	user-select: all;
+}
+::selection {
+	background: var(--turq);
+}
+
+.code-box,
+.card {
+	flex-grow: 1;
+}
+
+/* footer */
 footer {
 	margin: 50px;
 	text-align: center;
 }
+
+/* media query for larger screens */
+/* @media screen and (min-width: 992px) {
+	header {
+		width: 75%;
+	}
+
+	.card {
+		flex: 0 0 33.333%;
+		max-width: 33.333%;
+	}
+} */
