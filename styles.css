@@ -1,21 +1,27 @@
 /*
 Problems:
-1. Card heading boxes are different sizes
-2. How to fix the gap between card headings & <p> + gaps
-4. How to adjust width of child elements in a grid parent container e.g. code-box to be hugging?
-5. Code text spills over container when screen is shrunk
+1. Card heading boxes are different sizes DONE (UNINTENTIONAL)
+2. How to fix the gap between card headings & <p> + gaps DONE (flex-grow)
+3. flex-basis vs width
+4. Why does width 50% not split into 2 columns (even with box-sizing)
+5. Code text spills over container when screen is shrunk DONE (pre wrap)
+6. Can you style one child differently to other children in a flexbox e.g. the heading container to be centrally aligned while other children are flex-start
+7. How to make a flex-container child text-hugging e.g. card-heading <h2>
+	Ans: width: fit-content;
 
-To-do:
-- Card title positioning
-- Media query
-*/
 
 /* general */
 :root {
 	--light-text: rgb(236, 236, 236);
 	--dark-bg: #33393f;
 	--turq: rgb(28, 214, 158);
-	--purple: rgba(232, 102, 236);
+	--purple: rgb(232, 102, 236);
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 /* TOOK FROM SOLUTION */
@@ -35,7 +41,6 @@ body {
 
 	/* set body font size to 1.75rem, which is 1.75x more than the font-size of 10px, making it 17.5px  */
 	font-size: 1.5rem;
-	/* line-height: 1.5; */
 }
 
 h1,
@@ -48,7 +53,6 @@ p {
 
 /* TOOK FROM SOLUTION */
 h1 {
-	/* 4rem = 40px (4 * 10px) */
 	font-size: 3.5rem;
 }
 
@@ -67,6 +71,7 @@ header {
 	align-items: center;
 	margin: 4rem;
 	text-align: center;
+	gap: 1.5rem;
 }
 
 /* header subtext */
@@ -75,19 +80,17 @@ header p {
 }
 
 /* main section */
-main {
-}
-
 #flex-row {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
 	flex-wrap: wrap;
+	width: 100%;
 }
 
 /* cards/content */
 .card {
-	width: 30%;
+	min-height: 40vh;
 	margin: 2rem;
 	margin-top: 4rem;
 	padding: 0.8rem;
@@ -96,8 +99,10 @@ main {
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
-	z-index: 1;
+	gap: 1.5rem;
+	box-sizing: border-box;
 }
+
 .card:hover,
 .card:hover .card-heading {
 	/* TOOK FROM SOLUTION */
@@ -109,7 +114,13 @@ main {
 	transition: all 0.5s ease-in-out;
 } */
 
+.card-head-container {
+	display: flex;
+	justify-content: center;
+}
+
 .card-heading {
+	width: fit-content;
 	border: 1px solid white;
 	border-radius: 5px;
 	padding: 0.8rem;
@@ -118,13 +129,17 @@ main {
 	/* TOOK FROM SOLUTION */
 	margin: -4rem 0 0.8rem 0;
 
-	z-index: 2;
 	background-color: var(--dark-bg);
-	display: flex;
-	align-items: center;
+	text-align: center;
+}
+
+.card p {
+	text-align: center;
 }
 
 .code-box {
+	display: flex;
+	align-items: center;
 	padding: 0.8rem;
 	border: 1px solid transparent;
 	border-radius: 5px;
@@ -148,8 +163,8 @@ main {
 }
 
 /* TOOK FROM SOLUTION */
-.code-box,
-.card {
+.card,
+.code-box {
 	flex-grow: 1;
 }
 
@@ -160,13 +175,20 @@ footer {
 }
 
 /* media query for larger screens */
-/* @media screen and (min-width: 992px) {
-	header {
-		width: 100%;
-	}
-
+@media screen and (max-width: 767px) {
 	.card {
-		flex: 0 0 30%;
-		max-width: 30%;
+		flex-basis: 100%;
 	}
-} */
+}
+
+@media screen and (min-width: 768px) {
+	.card {
+		width: 40%;
+	}
+}
+
+@media screen and (min-width: 992px) {
+	.card {
+		width: 25%;
+	}
+}
